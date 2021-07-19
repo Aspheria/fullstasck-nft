@@ -15,9 +15,9 @@ const NftComponent = () => {
                 <img src={image} alt={title} />
               </div>
               <div className="content">
-                <div className="header">{title}</div> //id
-                <div className="meta price">BRL {price}</div>
-                <div className="meta">{owner}</div> //criador
+                <div className="header">{title}</div>
+                <div className="meta price">ETH {price}</div>
+                  <div className="meta">Owner...{owner.slice(-4)}</div>
               </div>
             </div>
           </div>

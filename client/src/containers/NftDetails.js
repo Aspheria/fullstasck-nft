@@ -11,7 +11,7 @@ const NftDetails = () => {
 
   const { nftId } = useParams();
   let nft = useSelector((state) => state.nft);
-  const { image, title, price, owner, description } = nft;
+  const { image, title, price, owner, creator,  description, tokenId, saleId, isForSale, isSold } = nft;
   const dispatch = useDispatch();
 
   const fetchNftDetail = async (id) => {   //remover fetch e pegar item diretamente pelo redux
@@ -46,7 +46,13 @@ const NftDetails = () => {
                 <h2>
                   <a className="ui teal tag label">${price}</a>
                 </h2>
-                <h3 className="ui brown block header">{owner}</h3>
+                <h2>
+                  <a className="ui teal tag label">${creator}</a>
+                </h2>
+                <h3 classsName="ui brown block header">
+                  <p>{tokenId} </p>
+                </h3>
+                <h3 className="ui brown block header">...{owner.slice(-4)}</h3>
                 <p>{description}</p>
                 <div className="ui vertical animated button" tabIndex="0">
                   <div className="hidden content">

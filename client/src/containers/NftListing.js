@@ -7,7 +7,7 @@ import getWeb3 from './../utils/getWeb3'
 import ArtMarketplace from './../contracts/ArtMarketplace.json'
 import ArtToken from './../contracts/ArtToken.json'
 
-import { setNft } from "../redux/actions/nftActions";
+import { setNft, setAccount, setTokenContract, setMarketContract } from "../redux/actions/nftActions";
 import NftComponent from "./NftComponent";
 
 
@@ -22,10 +22,14 @@ const NftPage = () => {
       });
     dispatch(setNft(response.data));
   };
+  // truffle migrate --reset
+  // npm install -g truffle
 
 
   useEffect(() => {
-    let itemsList = []
+    let itemsList = [];
+    // let accounts, artTokenContract, marketplaceContract;
+
     const init = async () => {
       try{
         const web3 = await getWeb3();
@@ -78,20 +82,21 @@ const NftPage = () => {
                 };
               }
             }
-          } 
+            dispatch(setAccount(accounts[0]));
+            dispatch(setTokenContract(artTokenContract));
+            dispatch(setMarketContract(marketplaceContract));
 
-          catch(error) {
+          } catch(error) {
             console.error("Error", error);
             alert("Contracts not deployed to the current network " + networkId.toString());
           }
           console.log(itemsList)
           dispatch(setNft(itemsList));
 
-        }
-          catch(error) {
+        } catch(error) {
             alert(`Failed to load web3, accounts, or contract. Check console for details.` + error);
             console.error(error);
-          }
+        }
     }
     init() 
     // fetchNft();

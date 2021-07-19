@@ -4,7 +4,7 @@ import NftListing from "./containers/NftListing";
 import Header from "./containers/Header";
 import "./App.css";
 import NftDetails from "./containers/NftDetails";
-
+//import NftForm from "./containers/NftForm"
 
 function App() {
   return (

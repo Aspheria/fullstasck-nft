@@ -1,14 +1,13 @@
 import React from "react";
 
-const Header = () => {
+const NftForm = () => {
   return (
     <div className="ui fixed menu">
       <div className="ui container center">
-        <h1>NFT Shop</h1>
+        <h1>NFTaaaaaaaaaaaa Shop</h1>
       </div>
-      
     </div>
   );
 };
 
-export default Header;
+export default NftForm;

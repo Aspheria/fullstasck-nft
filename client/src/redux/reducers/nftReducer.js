@@ -2,12 +2,23 @@ import { ActionTypes } from "../constants/action-types";
 
 const intialState = {
   nft: [],
+  account: '',
+  artTokenContract: null,
+  marketplaceContract: null
 };
 
 export const nftReducer = (state = intialState, { type, payload }) => {
   switch (type) {
     case ActionTypes.SET_NFT:
-      //add ArtTokenContract + Marketcontract + account
+      return { ...state, nft: payload };
+
+    case ActionTypes.SET_ACCOUNT:
+      return { ...state, nft: payload };
+    
+    case ActionTypes.SET_TOKEN_COTRACT:
+      return { ...state, nft: payload }; 
+
+    case ActionTypes.SET_MARKET_CONTRACT:
       return { ...state, nft: payload };
     default:
       return state;
